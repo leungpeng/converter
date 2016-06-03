@@ -91,6 +91,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="mail"></iron-icon>
             <span>Contact</span>
           </a>
+
+          <a data-route="base64" href="{{baseUrl}}base64">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Base64</span>
+          </a>
+          <a data-route="URLEncode" href="{{baseUrl}}URLEncode">
+            <iron-icon icon="mail"></iron-icon>
+            <span>URLEncode</span>
+          </a>
+
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -178,6 +188,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p>This is the contact section</p>
               </paper-material>
             </section>
+
+            <section data-route="base64" tabindex="-1">
+              <my-converter type="base64"></my-converter>
+            </section>
+
+            <section data-route="URLEncode" tabindex="-1">
+              <my-converter type="URLEncode"></my-converter>
+            </section>
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>

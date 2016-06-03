@@ -66,6 +66,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'contact';
       setFocus(app.route);
     });
+    page('/base64', function() {
+      app.route = 'base64';
+    });
+    page('/URLEncode', function() {
+      app.route = 'URLEncode';
+    });
 
     // 404
     page('*', function() {

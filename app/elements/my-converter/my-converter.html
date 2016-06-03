@@ -1,0 +1,52 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<dom-module id="my-converter">
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+    </style>
+    <paper-textarea label="Source" value="{{source}}" on-input="showEncode"></paper-textarea>
+    <paper-textarea label="Destination" value="{{dest}}" on-input="showDecode"></paper-textarea>
+  </template>
+
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: 'my-converter',
+      properties: {
+        source: String,
+        dest: String,
+        type: String
+      },
+      showEncode:function(){
+        var list = this.source.split("\n");
+        this.dest = '';
+        for(var i=0;i<list.length;i++){
+          if(this.dest!='') this.dest+='\n'
+          this.dest += this.encode(list[i]);
+        }
+      },
+      showDecode:function(){
+        var list = this.dest.split("/n");
+        this.source = '';
+        for(var i=0;i<list.length;i++){
+           this.source += this.decode(list[i]);
+        }
+      },
+      encode:function(input){
+        if(this.type=='base64') return btoa(input);
+        else if(this.type=='URLEncode') return encodeURIComponent(input);
+        else return '';
+      },
+      decode:function(input){
+        if(this.type=='base64') return atob(input);
+        else if(this.type=='URLEncode') return decodeURIComponent(input);
+        else return '';
+      }
+    });
+  </script>
+</dom-module>

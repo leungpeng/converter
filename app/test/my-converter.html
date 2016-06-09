@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>my-converter-basic</title>
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+
+  <!-- Import the element to test -->
+  <link rel="import" href="../elements/my-converter/my-converter.html">
+
+</head>
+<body>
+
+  <test-fixture id="base64">
+    <template>
+      <my-converter type="base64"></my-converter>
+    </template>
+  </test-fixture>
+  <test-fixture id="URLEncode">
+    <template>
+      <my-converter type="URLEncode"></my-converter>
+    </template>
+  </test-fixture>
+  <test-fixture id="gs1KeyCheckDigit">
+    <template>
+      <my-converter type="gs1KeyCheckDigit"></my-converter>
+    </template>
+  </test-fixture>
+
+  <script>
+
+    suite('my-converter tests', function() {
+      var base64, URLEncode, gs1KeyCheckDigit;
+
+      setup(function() {
+        base64 = fixture('base64');
+        URLEncode = fixture('URLEncode');
+        gs1KeyCheckDigit = fixture('gs1KeyCheckDigit');
+      });
+
+      test('base64', function() {
+        assert.equal(base64.encode('My Converter'), 'TXkgQ29udmVydGVy');
+      });
+      test('URLEncode', function() {
+        assert.equal(URLEncode.encode('My Converter'), 'My%20Converter');
+      });
+      test('gs1KeyCheckDigit', function() {
+        assert.equal(gs1KeyCheckDigit.encode('489166832668'), '4891668326689');
+      });
+
+    });
+  </script>
+
+</body>
+</html>

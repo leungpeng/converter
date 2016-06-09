@@ -40,12 +40,22 @@
       encode:function(input){
         if(this.type=='base64') return btoa(input);
         else if(this.type=='URLEncode') return encodeURIComponent(input);
+        else if(this.type=='gs1KeyCheckDigit') return input+this.gs1KeyCheckDigit(input);
         else return '';
       },
       decode:function(input){
         if(this.type=='base64') return atob(input);
         else if(this.type=='URLEncode') return decodeURIComponent(input);
         else return '';
+      },
+      gs1KeyCheckDigit:function(input){
+        var sum = 0;
+        if(input.length < 2 || parseInt(input) == NaN) return '';
+        input = Array.from(input).reverse().join("");
+        for(var i = 0; i < input.length; i++){
+          sum += (i % 2 == 0) ? (parseInt(input[i]) * 3):parseInt(input[i]);
+        }
+        return (10-(sum%10))%10;
       }
     });
   </script>

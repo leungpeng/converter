@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit">
-  <title>Polymer Starter Kit</title>
+  <title>My Converter</title>
 
   <!-- Place favicon.ico in the `app/` directory -->
 
@@ -82,23 +82,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Home</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
-            <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
-          </a>
-
-          <a data-route="contact" href="{{baseUrl}}contact">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
-          </a>
-
           <a data-route="base64" href="{{baseUrl}}base64">
-            <iron-icon icon="mail"></iron-icon>
+            <iron-icon icon="swap-horiz"></iron-icon>
             <span>Base64</span>
           </a>
           <a data-route="URLEncode" href="{{baseUrl}}URLEncode">
-            <iron-icon icon="mail"></iron-icon>
+            <iron-icon icon="swap-horiz"></iron-icon>
             <span>URLEncode</span>
+          </a>
+          <a data-route="gs1KeyCheckDigit" href="{{baseUrl}}gs1KeyCheckDigit">
+            <iron-icon icon="swap-horiz"></iron-icon>
+            <span>GS1 Key Check Digit</span>
           </a>
 
         </paper-menu>
@@ -118,12 +112,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">Polymer Starter Kit</div>
+            <div class="app-name">My Converter</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future of the web today</div>
+            <div class="bottom-title">...........</div>
           </div>
         </paper-toolbar>
 
@@ -164,37 +158,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="users" tabindex="-1">
-              <paper-material elevation="1">
-                <h1 class="page-title" tabindex="-1">Users</h1>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
-              </paper-material>
-            </section>
-
-            <section data-route="user-info" tabindex="-1">
-              <paper-material elevation="-1">
-                <h1 class="page-title" tabindex="-1">User: {{params.name}}</h1>
-                <div>This is {{params.name}}'s section</div>
-              </paper-material>
-            </section>
-
-            <section data-route="contact" tabindex="-1">
-              <paper-material elevation="1">
-                <h1 class="page-title" tabindex="-1">Contact</h1>
-                <p>This is the contact section</p>
-              </paper-material>
-            </section>
-
             <section data-route="base64" tabindex="-1">
               <my-converter type="base64"></my-converter>
             </section>
 
             <section data-route="URLEncode" tabindex="-1">
               <my-converter type="URLEncode"></my-converter>
+            </section>
+
+            <section data-route="gs1KeyCheckDigit" tabindex="-1">
+              <my-converter type="gs1KeyCheckDigit"></my-converter>
             </section>
 
           </iron-pages>

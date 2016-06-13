@@ -29,16 +29,21 @@
       <my-converter type="gs1KeyCheckDigit"></my-converter>
     </template>
   </test-fixture>
-
+  <test-fixture id="SHA1">
+    <template>
+      <my-converter type="SHA1"></my-converter>
+    </template>
+  </test-fixture>
   <script>
 
     suite('my-converter tests', function() {
-      var base64, URLEncode, gs1KeyCheckDigit;
+      var base64, URLEncode, gs1KeyCheckDigit, SHA;
 
       setup(function() {
         base64 = fixture('base64');
         URLEncode = fixture('URLEncode');
         gs1KeyCheckDigit = fixture('gs1KeyCheckDigit');
+        SHA = fixture('SHA1');
       });
 
       test('base64', function() {
@@ -50,7 +55,9 @@
       test('gs1KeyCheckDigit', function() {
         assert.equal(gs1KeyCheckDigit.encode('489166832668'), '4891668326689');
       });
-
+      test('SHA1', function() {
+        assert.equal(SHA.encode('hello'), 'aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d');
+      });
     });
   </script>
 

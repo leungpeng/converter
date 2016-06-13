@@ -90,6 +90,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="swap-horiz"></iron-icon>
             <span>URLEncode</span>
           </a>
+          <a data-route="SHA1" href="{{baseUrl}}SHA1">
+            <iron-icon icon="swap-horiz"></iron-icon>
+            <span>SHA 1</span>
+          </a>
           <a data-route="gs1KeyCheckDigit" href="{{baseUrl}}gs1KeyCheckDigit">
             <iron-icon icon="swap-horiz"></iron-icon>
             <span>GS1 Key Check Digit</span>
@@ -164,6 +168,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <section data-route="URLEncode" tabindex="-1">
               <my-converter type="URLEncode"></my-converter>
+            </section>
+
+            <section data-route="SHA1" tabindex="-1">
+              <my-converter type="SHA1"></my-converter>
             </section>
 
             <section data-route="gs1KeyCheckDigit" tabindex="-1">

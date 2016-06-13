@@ -1,5 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<script src="../../bower_components/SHA-1/sha1.js"></script>
+
 <dom-module id="my-converter">
   <!-- Defines the element's style and local DOM -->
   <template>
@@ -41,6 +43,7 @@
         if(this.type=='base64') return btoa(input);
         else if(this.type=='URLEncode') return encodeURIComponent(input);
         else if(this.type=='gs1KeyCheckDigit') return input+this.gs1KeyCheckDigit(input);
+        else if(this.type=='SHA1') return sha1(input);
         else return '';
       },
       decode:function(input){
